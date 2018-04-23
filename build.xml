@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="ant-test">
     <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
+    <property name="junit.output.dir" value="test"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
@@ -54,7 +54,7 @@
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="testTest" todir="${junit.output.dir}"/>
+            <test name="test.testTest" todir="${junit.output.dir}"/>
             <classpath refid="ant-test.classpath"/>
         </junit>
     </target>
