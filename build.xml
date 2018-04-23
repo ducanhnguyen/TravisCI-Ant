@@ -22,6 +22,12 @@
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="test">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
     </target>
     <target name="clean">
         <delete dir="bin"/>
@@ -33,6 +39,7 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
+            <src path="test"/>
             <classpath refid="ant-test.classpath"/>
         </javac>
     </target>
@@ -55,6 +62,14 @@
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
             <test name="test.b" todir="${junit.output.dir}"/>
+            <classpath refid="ant-test.classpath"/>
+        </junit>
+    </target>
+    <target name="b">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="b" todir="${junit.output.dir}"/>
             <classpath refid="ant-test.classpath"/>
         </junit>
     </target>
