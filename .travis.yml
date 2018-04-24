@@ -4,4 +4,4 @@ jdk:
 sudo: false
 script:
 - ant build
-- ant test
+- ant 'b (1)'
